@@ -28,8 +28,9 @@
   color: white;
   padding: 15px;
 }
-.moreinfo {
+.links {
   color: white;
+  text-decoration: none;
 }
 .logo {
   border-radius: 5px;

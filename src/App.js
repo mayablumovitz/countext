@@ -4,34 +4,29 @@ import './index.css';
 import { Route, Link } from 'react-router-dom'; 
 import { HashRouter as BrowserRouter } from 'react-router-dom';
 import Info from './Info.js'; 
+import population from './acs_population.json';
 
-// function App() {
-//   return (
-//     <div className="App">
-//     </div>
-//   );
-// }
-
-// export default App;
 var upperbound = 6;
 var lowerbound = 1;
+const counties = [];
+
+for (const county of population) {
+  counties.push(county.Name);
+}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value_loc: '',
-      value_num: 3,
-      error: null,
-      isLoaded: false,
-      apiinfo: ''
+      value_num: 3
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-
+  
   handleChange(event) {
     const direc = event.target.getAttribute("mode");
     if (direc == "loc") {
@@ -76,62 +71,9 @@ class App extends React.Component {
     }
   }
 
-  fetchAPI() {
-    fetch('https://parseapi.back4app.com/classes/Uszipcode_US_Zip_Code?limit=3500&order=County&keys=Primary_city,County,State,US_Zip_Code,estimated_population', { 
-      method: 'get', 
-      headers: new Headers({
-        'X-Parse-Application-Id': 'agOTkpIB8tfKwaMVg4Pl8U8vFCnccEl8XAYvIdRV',
-        'X-Parse-REST-API-Key': '2tHQfbGYAclL4yBKJFcgYcIVjCX8mtRpl18AK98S'
-      }), 
-    })
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isLoaded: true,
-          apiinfo: result.items
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
-  }
-
-  renderapiinfo() {
-    const error = this.state.error;
-    const isLoaded = this.state.isLoaded;
-    const apiinfo = this.state.apiinfo;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <ul>
-          {apiinfo.map(item => (
-            <li key={item.id}>
-              {item.name} {item.price}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-  }
-
   render() {
     return (
-      <BrowserRouter className = "page">
-      <header className="App-header">
-        <div className="logo"> CounText
-          </div>
-          <label className="headercontent"> A comparison tool for journalists who need to make sense of their data - through context.
-          </label>
-          <Link to="/Info" className="moreinfo">MORE INFO</Link>
-      </header>
+      <div>
       <form onSubmit={this.handleSubmit} className = "Main">
         <div className = "inputform">
           <label>
@@ -160,7 +102,7 @@ class App extends React.Component {
       <div className="censusinfo">
       
       </div>
-      </BrowserRouter>
+      </div>
     );
   }
 }

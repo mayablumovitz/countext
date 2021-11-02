@@ -1,7 +1,5 @@
 import React from "react";
 import './index.css';
-import { Route, Link } from 'react-router-dom'; 
-import { HashRouter as BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 class Info extends React.Component {  
