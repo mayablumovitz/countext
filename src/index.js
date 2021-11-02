@@ -16,8 +16,18 @@ import {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
-    <Info/>
+    <BrowserRouter className="page">
+  <header className="App-header">
+    <Link to="/" className="links">CounText</Link>
+    <label className="headercontent"> A comparison tool for journalists who need to make sense of their data - through context.
+    </label>
+    <Link to="/Info" className="links">More Info</Link>
+  </header>
+  <div className="main">
+    <Route exact path="/" component={App} />
+    <Route path="/Info" component={Info} />
+  </div>
+</BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -27,15 +37,4 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-{/* <BrowserRouter className="page">
-  <header className="App-header">
-    <Link to="/countext/" className="links">CounText</Link>
-    <label className="headercontent"> A comparison tool for journalists who need to make sense of their data - through context.
-    </label>
-    <Link to="/countext/Info" className="links">More Info</Link>
-  </header>
-  <div className="main">
-    <Route exact path="/countext/" component={App} />
-    <Route path="/countext/Info" component={Info} />
-  </div>
-</BrowserRouter> */}
+{/*  */}
