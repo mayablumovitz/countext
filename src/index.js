@@ -18,14 +18,14 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter className = "page">
     <header className="App-header">
-        <Link to="/" className="links">CounText</Link>
+        <Link to="/#" className="links">CounText</Link>
         <label className="headercontent"> A comparison tool for journalists who need to make sense of their data - through context.
         </label>
-        <Link to="/Info" className="links">More Info</Link>
+        <Link to="/#/Info" className="links">More Info</Link>
       </header>
       <div className="main">
-      <Route exact path="/" component={App}  />
-      <Route path="/Info" component={Info} />
+      <Route exact path="/#" component={App}  />
+      <Route path="/#/Info" component={Info} />
       </div>
     </BrowserRouter>
   </React.StrictMode>,
