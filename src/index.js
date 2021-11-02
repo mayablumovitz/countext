@@ -17,6 +17,7 @@ import {
 ReactDOM.render(
   <React.StrictMode>
     <App/>
+    <Info/>
   </React.StrictMode>,
   document.getElementById('root')
 );
