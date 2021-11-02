@@ -29,10 +29,10 @@ class App extends React.Component {
   
   handleChange(event) {
     const direc = event.target.getAttribute("mode");
-    if (direc == "loc") {
+    if (direc === "loc") {
       this.setState({value_loc: event.target.value});
     }
-    if (direc == "num") {
+    if (direc === "num") {
       this.setState({value_num: event.target.value});
     }
   }
