@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Info from './Info';
+import App from './App.js';
+import Info from './Info.js';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter,
